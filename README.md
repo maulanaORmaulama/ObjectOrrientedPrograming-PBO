@@ -6,8 +6,8 @@ Welcome to this repository! This project showcases core **Object-Oriented Progra
 
 ## 📚 Table of Contents
 - [📌 Overview](#-overview)
-- [📂 Module 1: Bank System (Array & Basic OOP Concepts)](#-module-1-bank-system-array--basic-oop-concepts)
-- [📐 Module 2: Geometry Calculator (OOP Fundamentals)](#-module-2-geometry-calculator-oop-fundamentals)
+- [📂 Module 4: Bank System (Array & Basic OOP Concepts)](#-module-1-bank-system-array--basic-oop-concepts)
+- [📐 Module 5-6: Geometry Calculator (OOP Fundamentals)](#-module-2-geometry-calculator-oop-fundamentals)
 - [⚙️ How to Compile & Run](#️-how-to-compile--run)
 - [🛠️ Prerequisites](#️-prerequisites)
 
@@ -21,7 +21,7 @@ This project consists of two distinct interactive console applications:
 
 ---
 
-## 📂 Module 1: Bank System (Array & Basic OOP Concepts)
+## 📂 Module 4: Bank System (Array & Basic OOP Concepts)
 
 This module contains two main files focusing on encapsulated banking state management and static tracking.
 
@@ -34,7 +34,7 @@ This module contains two main files focusing on encapsulated banking state manag
 
 ---
 
-## 📐 Module 2: Geometry Calculator (Abstraction, Encapsulation, Inheritance & Polymorphism)
+## 📐 Module 5-6: Geometry Calculator (Abstraction, Encapsulation, Inheritance & Polymorphism)
 
 This module demonstrates key OOP principles through dynamic shape calculations.
 
