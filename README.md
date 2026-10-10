@@ -1,92 +1,33 @@
-# 🚀 Java Object-Oriented Programming (OOP) Showcase
+# Dokumentasi Program Java
 
-Welcome to this repository! This project showcases core **Object-Oriented Programming (OOP)** concepts in Java, divided into two primary topic modules: basic class encapsulations/banking simulation and geometry shape modeling illustrating Abstraction, Encapsulation, Inheritance, and Polymorphism.
+Repositori ini berisi kumpulan program berbasis Java yang mengimplementasikan konsep Pemrograman Berorientasi Objek (PBO), yang terbagi menjadi dua program utama, yaitu Sistem Perbankan dan Kalkulator Geometri[cite: 1, 2, 3, 4, 5, 6, 7].
 
----
+## 1. Program Sistem Perbankan
 
-## 📚 Table of Contents
-- [📌 Overview](#-overview)
-- [📂 Module 4: Bank System (Array & Basic OOP Concepts)](#-module-1-bank-system-array--basic-oop-concepts)
-- [📐 Module 5-6: Geometry Calculator (OOP Fundamentals)](#-module-2-geometry-calculator-oop-fundamentals)
-- [⚙️ How to Compile & Run](#️-how-to-compile--run)
-- [🛠️ Prerequisites](#️-prerequisites)
+Program ini mensimulasikan sistem manajemen rekening bank sederhana berbasis teks. Program ini memungkinkan pengguna untuk membuat akun baru, melakukan deposit, melakukan penarikan saldo, melihat riwayat transaksi, serta menampilkan informasi umum bank[cite: 1, 2].
 
----
-
-## 📌 Overview
-
-This project consists of two distinct interactive console applications:
-1. **Bank System**: Demonstrates state management, static members, encapsulation, and menu-driven interaction using `Scanner`.
-2. **Geometry Calculator**: Demonstrates class hierarchies, inheritance, method overriding, and dynamic calculation for shapes.
+### Penjelasan Kelas pada Sistem Perbankan:
+* **Bank.java**: Kelas yang merepresentasikan entitas akun bank individual. Kelas ini mengelola atribut seperti nomor rekening, saldo, dan riwayat transaksi menggunakan struktur data array dengan batasan lima transaksi terakhir. Di dalamnya terdapat fungsi untuk melakukan `deposit` (setor tunai), `withdraw` (tarik tunai), mencetak riwayat transaksi, serta variabel statis untuk melacak total akun aktif dan nama bank[cite: 1].
+* **BankDemo.java**: Kelas utama yang menjalankan antarmuka menu interaktif menggunakan `Scanner` dan `ArrayList`. Kelas ini menampung daftar seluruh akun yang dibuat secara dinamis dan menyediakan navigasi menu untuk memilih akun, melihat daftar seluruh akun, membuat akun baru, serta melakukan transaksi pada akun yang dipilih[cite: 2].
 
 ---
 
-## 📂 Module 4: Bank System (Array & Basic OOP Concepts)
+## 2. Program Kalkulator Geometri
 
-This module contains two main files focusing on encapsulated banking state management and static tracking.
+Program ini merupakan aplikasi konsol untuk menghitung properti geometris dari berbagai bentuk bangun ruang dan datar dengan menerapkan konsep pewarisan (inheritance) dan polimorfisme[cite: 3, 4, 5, 6, 7].
 
-### 📄 Files Included:
-*   **`Bank.java`**:
-    *   **Encapsulation**: Keeps field variables like `balance` private and accessible through public getter (`getBalance()`) and modifier methods (`deposit()`, `withdraw()`).
-    *   **Static Members**: Utilizes `bankName` and `totalAccounts` to share global data across all account instances.
-*   **`BankDemo.java`**:
-    *   **Execution Layer**: Contains the `main` method that runs an interactive loop menu for balance inquiry, deposits, and withdrawals.
-
----
-
-## 📐 Module 5-6: Geometry Calculator (Abstraction, Encapsulation, Inheritance & Polymorphism)
-
-This module demonstrates key OOP principles through dynamic shape calculations.
-
-### 🖼️ OOP Pillars Applied:
-*   🔒 **Encapsulation**: Attributes such as `warna`, `sisi`, `radius`, and `tinggi` are protected or private with accessors/mutators.
-*   🧬 **Inheritance**: `BujurSangkar` and `Lingkaran` inherit from the base class `Bentuk`. `Silinder` further extends `Lingkaran`.
-*   🎭 **Polymorphism**: The `printInfo()` method is overridden in subclasses (`BujurSangkar`, `Lingkaran`, `Silinder`) to display specialized behavior and dynamic area/volume calculations.
-
-### 📄 Files Included:
-*   **`Bentuk.java`**: The base/parent class representing a general shape with color attributes (`warna`).
-*   **`BujurSangkar.java`**: Subclass representing a square; calculates area (`sisi * sisi`).
-*   **`Lingkaran.java`**: Subclass representing a circle; calculates area using the formula $\text{PHI} \times r^2$.
-*   **`Silinder.java`**: Subclass of `Lingkaran` representing a cylinder; calculates volume by leveraging the parent's base area ($\text{Base Area} \times h$).
-*   **`Main.java`**: An interactive CLI application allowing users to input dimensions for different shapes and print dynamic results.
+### Penjelasan Kelas pada Kalkulator Geometri:
+* **Bentuk.java**: Kelas induk (*super class*) yang mendefinisikan atribut dasar yang dimiliki oleh setiap bentuk geometri, yaitu atribut warna, lengkap dengan fungsi pengakses (`getter` dan `setter`) serta fungsi penampil informasi dasar[cite: 3].
+* **BujurSangkar.java**: Kelas turunan (*subclass*) dari `Bentuk` yang merepresentasikan bangun datar bujur sangkar. Kelas ini menambahkan atribut sisi serta method khusus untuk menghitung luas bujur sangkar dan menimpa (*override*) fungsi cetak informasi[cite: 4].
+* **Lingkaran.java**: Kelas turunan dari `Bentuk` yang merepresentasikan lingkaran. Kelas ini memiliki atribut radius serta konstanta nilai phi (`3.14159`) untuk menghitung luas lingkaran[cite: 5].
+* **Silinder.java**: Kelas turunan (*multilevel inheritance*) dari kelas `Lingkaran`. Kelas ini menambahkan atribut tinggi guna menghitung volume silinder dengan mengalikan luas alas lingkaran dengan tinggi silinder[cite: 7].
+* **Main.java**: Kelas pengendali utama yang menyajikan menu interaktif kepada pengguna untuk memilih bentuk geometri yang ingin dihitung, menerima masukan nilai dari pengguna, lalu menampilkan hasil perhitungan luas atau volume beserta warnanya[cite: 6].
 
 ---
 
-## ⚙️ How to Compile & Run
+## Cara Kompilasi dan Menjalankan Program
 
-You can compile and run these modules using the Java CLI in your terminal or command prompt.
-
-### 1️⃣ Run the Bank System Simulation
-Navigate to the project root directory in your terminal and compile:
-
+### Menjalankan Sistem Perbankan
 ```bash
-# Compile Bank files
 javac Bank.java BankDemo.java
-
-# Run the Bank Demo application
 java BankDemo
-```
-
-### 2️⃣ Run the Geometry Calculator
-Compile all shape classes alongside the `Main` class:
-
-```bash
-# Compile Shape classes and Main executable
-javac Bentuk.java BujurSangkar.java Lingkaran.java Silinder.java Main.java
-
-# Or compile all .java files at once:
-# javac *.java
-
-# Run the Geometry Calculator application
-java Main
-```
-
----
-
-## 🛠️ Prerequisites
-
-*   **Java Development Kit (JDK)**: Version 8 or higher.
-*   **Terminal / Command Prompt** or any IDE like IntelliJ IDEA, Eclipse, or VS Code.
-
----
-✨ *Happy Coding!*
