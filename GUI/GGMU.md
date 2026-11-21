@@ -1,4 +1,4 @@
-![Banner](assets/Banner.jpg)
+![Banner](_output/Banner.jpg)
 
 # Manchester United - Trophy & Legends Data Gallery (GGMU.java)
 
@@ -13,17 +13,64 @@ Berdasarkan struktur folder proyek:
 ```text
 GUI/
 ├── _output/
+│   ├── AtomicComponentClass.png
+│   ├── Banner.jpg
+│   ├── BorderLayout.png
+│   ├── EventListener.png
+│   ├── FlowLayout.png
 │   ├── Home.png
+│   ├── IntermediateContainerClass.png
 │   ├── Legends.png
+│   ├── TopLevelContainerClass.png
 │   └── Trophy.png
 ├── assets/
-│   ├── Banner.jpg
 │   ├── logo_mu.png
 │   ├── league.jpg
 │   ├── facup.jpg
 │   ├── ... (aset gambar trofi dan pemain lainnya)
-└── GGMU.java
+├── GGMU.java
+└── README.md
 ```
+
+---
+
+## Implementasi 5 Komponen Utama Java Swing (GUI Requirements)
+
+Berikut adalah dokumentasi penerapan 5 komponen utama antarmuka grafis (GUI) dalam program `GGMU.java` beserta tangkapan layar kodenya:
+
+### 1. Top-Level Container Class
+* **Komponen yang digunakan:** `JFrame` dan `JOptionPane`
+* **Implementasi:** `JFrame` berfungsi sebagai jendela utama aplikasi tempat seluruh komponen grafis bernaung, sedangkan `JOptionPane` digunakan untuk menampilkan dialog *dropdown* pilihan trofi maupun pemain legenda.
+
+![Top-Level Container Class](_output/TopLevelContainerClass.png)
+
+### 2. Intermediate Container Class
+* **Komponen yang digunakan:** `JPanel` dan `JScrollPane`
+* **Implementasi:** `JPanel` digunakan untuk mengelompokkan komponen berdasarkan areanya (`panelAtas`, `panelTengah`, `panelKanan`, dan `panelMenu`), sementara `JScrollPane` membungkus `JTextArea` agar teks biografi panjang dapat digulir (*scroll*) dengan rapi.
+
+![Intermediate Container Class](_output/IntermediateContainerClass.png)
+
+### 3. Atomic Component Class
+* **Komponen yang digunakan:** `JLabel`, `JTextArea`, dan `JButton`
+* **Implementasi:** `JLabel` menampilkan logo klub, judul, instruksi, dan foto; `JTextArea` menampilkan rincian deskripsi sejarah; dan `JButton` menyediakan tombol interaktif untuk memilih kategori.
+
+![Atomic Component Class](_output/AtomicComponentClass.png)
+
+### 4. Layout Classes (Minimal 2 Layout Classes)
+Program ini mengombinasikan **3 jenis Layout Manager** untuk mengatur tata letak antarmuka secara responsif:
+* **`BorderLayout`:** Mengatur tata letak utama `JFrame` (`NORTH`, `CENTER`, `SOUTH`) dan `panelTengah` (`NORTH`, `CENTER`, `EAST`).
+* **`FlowLayout`:** Menyusun logo dan judul klub secara horizontal rata kiri pada `panelAtas`.
+* **`GridLayout`:** Membagi ruang tombol navigasi (`btnTrophy` dan `btnLegends`) menjadi 1 baris dan 2 kolom dengan ukuran simetris pada `panelMenu`.
+
+| Implementasi BorderLayout | Implementasi FlowLayout |
+| :---: | :---: |
+| ![BorderLayout](_output/BorderLayout.png) | ![FlowLayout](_output/FlowLayout.png) |
+
+### 5. Event Listener (Event Method Override)
+* **Komponen yang digunakan:** `ActionListener` dengan *override* metode `actionPerformed(ActionEvent e)`
+* **Implementasi:** Diterapkan pada tombol `btnTrophy` dan `btnLegends` melalui `addActionListener(...)` untuk merespons klik pengguna, memunculkan dialog pilihan, serta memperbarui teks dan gambar sesuai item yang dipilih.
+
+![Event Listener](_output/EventListener.png)
 
 ---
 
@@ -44,6 +91,8 @@ import java.awt.event.ActionListener;
 ---
 
 ### 2. Inisialisasi JFrame Utama dan Palet Warna
+![Inisialisasi JFrame dan Warna](_output/BorderLayout.png)
+
 ```java
 JFrame frame = new JFrame("Manchester United - Trophy & Legends Data Gallery");
 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -63,6 +112,8 @@ Color warnaKuningMU = new Color(253, 185, 19);
 ---
 
 ### 3. Pembuatan Header Aplikasi (`panelAtas`)
+![Header Aplikasi](_output/FlowLayout.png)
+
 ```java
 JPanel panelAtas = new JPanel(new FlowLayout(FlowLayout.LEFT, 15, 10));
 panelAtas.setBackground(warnaMerahMU);
@@ -88,6 +139,8 @@ frame.add(panelAtas, BorderLayout.NORTH);
 ---
 
 ### 4. Area Konten Utama, Informasi, dan Bingkai Foto (`panelTengah`)
+![Area Konten Utama](_output/IntermediateContainerClass.png)
+
 ```java
 JPanel panelTengah = new JPanel(new BorderLayout(10, 10));
 panelTengah.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20));
@@ -126,13 +179,15 @@ frame.add(panelTengah, BorderLayout.CENTER);
 ---
 
 ### 5. Pembuatan Menu Tombol Navigasi (`panelMenu`)
+![Komponen Tombol dan Teks](_output/AtomicComponentClass.png)
+
 ```java
 JPanel panelMenu = new JPanel(new GridLayout(1, 2, 15, 15));
 panelMenu.setBorder(BorderFactory.createEmptyBorder(15, 20, 20, 20));
 panelMenu.setBackground(warnaMerahMU);
 
-JButton btnTrophy = new JButton("PILIH TROFI");
-JButton btnLegends = new JButton("PILIH PEMAIN LEGENDA");
+JButton btnTrophy = new JButton("🏆 PILIH TROFI");
+JButton btnLegends = new JButton("⭐ PILIH PEMAIN LEGENDA");
 ```
 **Penjelasan:**
 * `panelMenu`: Ditempatkan di bagian bawah jendela (`BorderLayout.SOUTH`) menggunakan `GridLayout(1, 2, 15, 15)` sehingga kedua tombol (`btnTrophy` dan `btnLegends`) memiliki lebar yang simetris.
@@ -141,6 +196,8 @@ JButton btnLegends = new JButton("PILIH PEMAIN LEGENDA");
 ---
 
 ### 6. Event Handling Kategori Trofi (`btnTrophy`)
+![Event Handling](_output/EventListener.png)
+
 ```java
 btnTrophy.addActionListener(new ActionListener() {
     @Override
@@ -182,6 +239,8 @@ btnTrophy.addActionListener(new ActionListener() {
 ---
 
 ### 7. Event Handling Kategori Pemain Legenda (`btnLegends`) dan Aktivasi Jendela
+![Aktivasi Jendela Utama](_output/TopLevelContainerClass.png)
+
 ```java
 btnLegends.addActionListener(new ActionListener() {
     @Override
