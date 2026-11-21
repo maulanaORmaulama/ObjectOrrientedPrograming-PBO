@@ -8,30 +8,6 @@ Aplikasi desktop berbasis Java Swing yang menampilkan galeri interaktif sejarah 
 
 ## Struktur Direktori
 
-Berdasarkan struktur folder proyek:
-
-```text
-GUI/
-├── _output/
-│   ├── AtomicComponentClass.png
-│   ├── Banner.jpg
-│   ├── BorderLayout.png
-│   ├── EventListener.png
-│   ├── FlowLayout.png
-│   ├── Home.png
-│   ├── IntermediateContainerClass.png
-│   ├── Legends.png
-│   ├── TopLevelContainerClass.png
-│   └── Trophy.png
-├── assets/
-│   ├── logo_mu.png
-│   ├── league.jpg
-│   ├── facup.jpg
-│   ├── ... (aset gambar trofi dan pemain lainnya)
-├── GGMU.java
-└── README.md
-```
-
 ---
 
 ## Implementasi 5 Komponen Utama Java Swing (GUI Requirements)
